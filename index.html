@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无影平台导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa 0%, #f8f9fa 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #263238;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #78909c;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .nav-button {
+            position: relative;
+            height: 150px;
+            background: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+        }
+        
+        .nav-button h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #263238;
+        }
+        
+        .nav-button .error-text {
+            font-size: 0.9rem;
+            color: #f44336;
+            font-weight: 500;
+            background-color: rgba(244, 67, 54, 0.1);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .wen-sheng-tu { 
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+        }
+        
+        .tu-sheng-shi-pin { 
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+        }
+        
+        .wen-sheng-shi-pin { 
+            background: #fff3e0;
+            border: 1px solid #ffcc80;
+        }
+        
+        .dify-pingtai { 
+            background: #f3e5f5;
+            border: 1px solid #ce93d8;
+        }
+        
+        @media (max-width: 600px) {
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>无影平台导航</h1>
+            <p class="subtitle">一站式AI创作平台</p>
+        </div>
+        
+        <div class="nav-grid">
+            <button class="nav-button wen-sheng-tu" onclick="navigateTo('http://10.0.192.135:8000')">
+                <h3>文生图</h3>
+                <div class="error-text">无法连接时请启动1号机</div>
+            </button>
+            
+            <button class="nav-button tu-sheng-shi-pin" onclick="navigateTo('http://10.0.192.134:8000')">
+                <h3>图生视频</h3>
+                <div class="error-text">无法连接时请启动2号机</div>
+            </button>
+            
+            <button class="nav-button wen-sheng-shi-pin" onclick="navigateTo('http://10.0.192.136:8000')">
+                <h3>文生视频</h3>
+                <div class="error-text">无法连接时请启动3号机</div>
+            </button>
+            
+            <button class="nav-button dify-pingtai" onclick="navigateTo('http://10.0.192.130:8000')">
+                <h3>Dify平台</h3>
+                <div class="error-text">无法连接时请启动8号机</div>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function navigateTo(url) {
+            try {
+                window.open(url, '_blank');
+            } catch (e) {
+                console.log("无法打开页面: " + url);
+            }
+        }
+    </script>
+</body>
+</html>
